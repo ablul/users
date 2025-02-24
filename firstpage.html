@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevr</title>
+    <!-- Font Awesome CDN for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            color: #b7beba;
+            box-sizing: border-box;
+            position: relative; /* Required for the overlay */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Image */
+        body {
+            background-image: url('https://wallpapercave.com/wp/wp4019911.jpg');
+            background-size: contain; /* Revert to 'contain' for original behavior */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+
+        /* Dark Overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here (0.5 = 50% transparent black) */
+            z-index: -1; /* Ensure the overlay stays behind the content */
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Increased padding to move the navbar 200px from the screen edges */
+            background: rgba(0, 0, 0, 0.6); 
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+        .logo {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2px; /* Space between "About" and "Contact" */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        .nav-links li {
+            margin: 0;
+            margin-right: 40px;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+           
+            border-radius: 50%; /* Make the links circular */
+            display: flex; /* Center text inside the circle */
+            align-items: center; /* Vertical centering */
+            justify-content: center; /* Horizontal centering */
+            width: 53px; /* Fixed width for the circle */
+            height: 40px; /* Fixed height for the circle */
+            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+        }
+        .nav-links li a:hover {
+            background-color: rgba(41, 126, 69, 0.7); /* Darker background on hover */
+            transform: scale(1.1); /* Slightly increase size */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px 10px;
+            flex-grow: 1;
+        }
+        .hero-content h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(2, 2, 2, 0.8);
+        }
+        .hero-content p {
+            font-size: 18px;
+            max-width: 800px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .start-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #454b47;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .start-btn:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            width: 100%;
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+        .footer .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer .social-icons a:hover {
+            color: #00cc44;
+            transform: translateY(-5px);
+        }
+
+        /* Mobile view adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px; /* Reset padding for smaller screens */
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 10px; /* Increase gap for better readability on mobile */
+            }
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Elevr</div>
+            <ul class="nav-links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Place for Growth, Self-Improvement, and Making Money</h1>
+            <p>Elevr helps individuals and businesses rise to new heights, improve skills, and achieve success.</p>
+            <a href="#" class="start-btn">Start Now</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Gmail"><i class="fas fa-envelope"></i></a>
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2025 Elevr. All rights reserved.</p>
+    </footer>
+</body>
+</html>
